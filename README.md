@@ -10,11 +10,34 @@ Here's an example of what this project structure might look like in a C# solutio
 
 Each layer is represented as a folder within the solution. The subfolders within each layer represent the various components and classes that make up that layer. The Tests folder contains separate test projects for each layer, with each project containing unit tests for that layer.
 
+In Layered Architecture, the application layer is part of the service layer, which is responsible for implementing the business logic of the system. The service layer contains the application logic, data access logic, and any other technical concerns. The service layer is often divided into multiple sub-layers such as application, domain, and infrastructure.
+
 ## Onion Architecture
 Onion Architecture is a more modern architecture that pays great attention to inversion of dependencies and the use of interfaces. In this architecture, the application is divided into smaller components called cores. Each core represents a separate module of business logic that depends only on its internal abstractions and is unaware of external abstractions. Cores can only interact with each other through interfaces, making the application more flexible and scalable.
 
 ## Hexagonal Architecture
 Hexagonal Architecture is another modern architecture that also pays great attention to inversion of dependencies and the separation of business logic and infrastructure. In this architecture, business logic is at the heart of the application and surrounded by various adapter layers that provide interaction with the external world. Unlike Layered Architecture, where layers can call layers below, in Hexagonal Architecture all calls enter and exit through adapters, making the application more independent of external systems and more testable.
+
+Here's an example project structure for a Hexagonal Architecture in C#:
+
+![image](https://user-images.githubusercontent.com/70201621/222955693-609cdbfa-f041-445d-a273-3a3c9958e123.png)
+
+#### Application Layer:
+This layer contains the application-specific business logic and services that use the domain layer via ports. It includes ports, services, and DTOs that expose the application's functionality to external clients.
+
+#### Domain Layer:
+This layer contains the core business logic and rules of the application, independent of the application's details. It consists of entities, value objects, exceptions, ports, and services that model the problem domain.
+
+#### Infrastructure Layer:
+This layer contains the implementation details for the application, including data access, external libraries, services, and adapters that connect the ports of the application layer to the ports of the domain layer.
+
+#### Presentation Layer:
+This layer is responsible for interacting with the user and handling user input/output. It typically contains controllers, views, and DTOs that map to the entities in the domain layer.
+
+#### Tests:
+This folder contains separate test projects for each layer, with each project containing unit tests for that layer.
+
+This architecture emphasizes the separation of concerns between the layers, which allows for more flexibility and maintainability. The Domain Layer is the heart of the system and is isolated from the infrastructure and application layers, which enables the system to evolve and change over time. The Infrastructure Layer acts as an adapter that connects the ports of the application and domain layers.
 
 ### Benefits of Hexagonal Architecture
 #### Plug & play
@@ -44,4 +67,5 @@ Domain layer will be heavy
 
 Lots of logic will be implemented in Domain layer (sometimes called as Core layer)
 
+# Wrapping up
 Each of these architectures has its advantages and disadvantages, and the right choice depends on the specific requirements and features of the project.
