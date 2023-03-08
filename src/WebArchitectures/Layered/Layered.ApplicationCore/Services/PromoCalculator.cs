@@ -2,7 +2,7 @@
 using Layered.Domain.Services.Interfaces;
 using Layered.Domain.ValueObjects;
 
-namespace Layered.Domain.Services;
+namespace Layered.Aplication.Services;
 
 public class PromoCalculator : IPromoCalculator
 {

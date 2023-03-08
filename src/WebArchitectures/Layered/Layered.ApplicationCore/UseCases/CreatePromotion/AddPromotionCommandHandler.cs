@@ -4,7 +4,7 @@ using Layered.Domain.Entities;
 using Layered.Domain.Services.Interfaces;
 using MediatR;
 
-namespace Layered.Application.Handlers;
+namespace Layered.Application.UseCases.CreatePromotion;
 
 public class AddPromotionCommandHandler : IRequestHandler<AddPromotionCommand, PromotionResultDto>
 {
@@ -18,7 +18,7 @@ public class AddPromotionCommandHandler : IRequestHandler<AddPromotionCommand, P
     public async Task<PromotionResultDto> Handle(AddPromotionCommand request, CancellationToken cancellationToken)
     {
         var promo = _mapper.Map<Promotion>(request.PromotionDto);
-        var result = await _promoService.AddNewPromotion(promo); 
+        var result = await _promoService.AddNewPromotion(promo);
 
         return await Task.FromResult(new PromotionResultDto() { Success = result });
     }

@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Layered.Application.DTOs;
-using Layered.Application.Handlers;
 using Layered.Application.UnitTest.Mapper;
+using Layered.Application.UseCases.GetPromotions;
 using Layered.Domain.Entities;
 using Layered.Domain.Services.Interfaces;
 using Moq;

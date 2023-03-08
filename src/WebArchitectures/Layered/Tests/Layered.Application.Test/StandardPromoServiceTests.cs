@@ -1,9 +1,9 @@
+using Layered.Aplication.Services;
 using Layered.Common.Interfaces.Persistance;
 using Layered.Domain.Entities;
-using Layered.Domain.Services;
 using Moq;
 
-namespace Layered.Domain.Tests.Services
+namespace Layered.Aplication.Tests.Services
 {
     public class StandardPromoServiceTests
     {

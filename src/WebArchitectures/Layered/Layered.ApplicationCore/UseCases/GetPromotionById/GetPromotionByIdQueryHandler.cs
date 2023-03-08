@@ -1,7 +1,7 @@
 ﻿using Layered.Application.DTOs;
 using MediatR;
 
-namespace Layered.Application.Handlers;
+namespace Onion.Application.UseCases.GetPromotionById;
 
 public class GetPromotionByIdQueryHandler : IRequestHandler<GetPromotionsByIdQuery, PromotionDto>
 {

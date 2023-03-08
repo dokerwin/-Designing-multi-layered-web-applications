@@ -1,7 +1,7 @@
 ﻿using Layered.Application.DTOs;
 using MediatR;
 
-namespace Layered.Application.Handlers;
+namespace Layered.Application.UseCases.DeletePromotion;
 
 public class DeletePromotionCommandHandler : IRequestHandler<DeletePromotionCommand, PromotionResultDto>
 {

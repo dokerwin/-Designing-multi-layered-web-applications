@@ -1,5 +1,6 @@
 using Layered.Api.Conrollers;
 using Layered.Application.DTOs;
+using Layered.Application.UseCases.GetPromotions;
 using Layered.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;

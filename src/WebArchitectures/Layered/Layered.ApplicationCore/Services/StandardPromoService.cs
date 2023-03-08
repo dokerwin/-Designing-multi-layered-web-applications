@@ -2,7 +2,7 @@
 using Layered.Domain.Entities;
 using Layered.Domain.Services.Interfaces;
 
-namespace Layered.Domain.Services;
+namespace Layered.Aplication.Services;
 
 public class StandardPromoService : IPromoService
 {

@@ -1,4 +1,5 @@
 ﻿using Layered.Application.DTOs;
+using Layered.Application.UseCases.GetPromotions;
 using Layered.Domain.ValueObjects;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +48,7 @@ public class PromotionController : ControllerBase
 
 
     [HttpPost("CalculatePromo")]
-    public async Task<ActionResult> CalculatePromo([FromBody] RawBasket rawBasket)
+    public async Task<ActionResult> CalculatePromo([FromBody] RawBasketDto rawBasket)
     {
         var result = await _mediator.Send(new CalculatePromotionForBasketCommand(rawBasket));
         return Ok(result);

@@ -3,7 +3,7 @@ using Layered.Application.DTOs;
 using Layered.Domain.Services.Interfaces;
 using MediatR;
 
-namespace Layered.Application.Handlers;
+namespace Layered.Application.UseCases.GetPromotions;
 
 public class GetAllPromotionQueryHandler : IRequestHandler<GetAllPromotionsQuery, IEnumerable<PromotionDto>>
 {

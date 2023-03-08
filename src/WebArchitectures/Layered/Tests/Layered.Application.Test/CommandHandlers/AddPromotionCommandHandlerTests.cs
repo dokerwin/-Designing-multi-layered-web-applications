@@ -1,6 +1,6 @@
 using AutoMapper;
 using Layered.Application.DTOs;
-using Layered.Application.Handlers;
+using Layered.Application.UseCases.CreatePromotion;
 using Layered.Domain.Entities;
 using Layered.Domain.Services.Interfaces;
 using Moq;
