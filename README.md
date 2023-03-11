@@ -68,4 +68,22 @@ Domain layer will be heavy
 Lots of logic will be implemented in Domain layer (sometimes called as Core layer)
 
 # Wrapping up
+Layered architecture, hexagonal architecture, and onion architecture are all design patterns that can be used in a variety of projects, depending on the specific requirements and constraints of the project at hand. Here are some examples of projects that could benefit from each architecture:
+
+### Layered Architecture:
+
+Small to medium-sized applications that have a simple architecture and do not require a lot of complexity, such as a blogging platform or a basic e-commerce website
+Applications that require a clear separation of concerns between different layers, such as a three-tier web application with a presentation layer, business logic layer, and data access layer.
+
+### Hexagonal Architecture:
+
+Large applications that require integration with external systems, such as banking or financial applications
+Complex applications that require a clear separation of concerns between different layers, such as a healthcare application that interfaces with electronic medical records and medical devices.
+
+### Onion Architecture:
+
+Highly modular and maintainable applications that require a high degree of flexibility and scalability, such as enterprise applications that handle supply chain management or customer relationship management
+Applications that require a clear separation of concerns between different layers, such as a mobile app that needs to separate the user interface from the application logic.
+It's important to note that the choice between these architectures depends on the specific needs of the project. In some cases, a combination of these architectures may be used to achieve the desired outcomes.
+
 Each of these architectures has its advantages and disadvantages, and the right choice depends on the specific requirements and features of the project.
