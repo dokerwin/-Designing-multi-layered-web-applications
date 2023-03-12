@@ -24,7 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Onion.Api\Onion.Api.csproj" />
   </ItemGroup>
 
 </Project>

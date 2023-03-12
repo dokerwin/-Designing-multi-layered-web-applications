@@ -30,7 +30,7 @@ public class StandardPromoServiceTests
 
         // Assert
         _mockUnitOfWork.Verify(uow => uow.Promotions.Add(promotion), Times.Once);
-        Assert.True(result);
+        Assert.True(result == Guid.Empty);
     }
 
     [Fact]
@@ -44,7 +44,7 @@ public class StandardPromoServiceTests
         var result = await _promoService.AddNewPromotion(promotion);
 
         // Assert
-        Assert.False(result);
+        Assert.False(result == Guid.Empty);
     }
 
 

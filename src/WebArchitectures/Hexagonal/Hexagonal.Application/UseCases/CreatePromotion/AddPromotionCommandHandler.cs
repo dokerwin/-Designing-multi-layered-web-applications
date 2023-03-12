@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
+using Hexagonal.Domain.Model.Entities;
+using Hexagonal.Domain.Services.Services.Interfaces;
+using Hexagonal.Shared.Application.DTOs;
 using MediatR;
-using Onion.Application.DTOs;
-using Onion.Domain.Model.Entities;
-using Onion.Domain.Services.Services.Interfaces;
 
-namespace Onion.Application.UseCases.CreatePromotion;
+namespace Hexagonal.Application.UseCases.CreatePromotion;
 
 public class AddPromotionCommandHandler : IRequestHandler<AddPromotionCommand, PromotionResultDto>
 {
@@ -20,6 +20,6 @@ public class AddPromotionCommandHandler : IRequestHandler<AddPromotionCommand, P
         var promo = _mapper.Map<Promotion>(request.PromotionDto);
         var result = await _promoService.AddNewPromotion(promo);
 
-        return await Task.FromResult(new PromotionResultDto() { Success = result });
+        return await Task.FromResult(new PromotionResultDto() { PromotionId = result });
     }
 }

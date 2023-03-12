@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
+using Hexagonal.Domain.Services.Services.Interfaces;
+using Hexagonal.Shared.Application.DTOs;
 using MediatR;
-using Onion.Application.DTOs;
-using Onion.Domain.Services.Services.Interfaces;
 
-namespace Onion.Application.UseCases.GetPromotions;
+namespace Hexagonal.Application.UseCases.GetPromotions;
 
 public class GetAllPromotionQueryHandler : IRequestHandler<GetAllPromotionsQuery, IEnumerable<PromotionDto>>
 {

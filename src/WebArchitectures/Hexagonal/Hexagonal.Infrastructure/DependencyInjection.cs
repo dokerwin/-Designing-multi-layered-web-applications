@@ -1,5 +1,5 @@
 ﻿using Hexagonal.Domain.Services.Persistance.Interfaces;
-using Hexagonal.Infrastructure.Persistence.EF;
+using Hexagonal.EF.Adapter.Persistence;
 using Hexagonal.PromotionService.Infrastructure.Persistence;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -15,7 +15,7 @@ public static class DependencyInjection
     private static IServiceCollection AddRepositorises(this IServiceCollection services)
     {
         services.AddScoped(typeof(IRepository<>), typeof(EFRepository<>));
-        services.AddScoped<IUnitOfWork, UnitOfWork>();
+        services.AddScoped<IUnitOfWork, EFUnitOfWork>();
         services.AddScoped<IPromotionRepository, EFPromotionRepository>();
         services.AddScoped<IPromoBasketRepository, EFPromoBasketRepository>();
         return services;

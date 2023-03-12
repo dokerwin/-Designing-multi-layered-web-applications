@@ -21,8 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Hexagonal.Domain\Hexagonal.Domain.Services.csproj" />
-    <ProjectReference Include="..\..\Onion.Core\Onion.Domain.Services.csproj" />
+    <ProjectReference Include="..\..\Hexagonal.Domain\Hexagonal.Domain.Services.csproj" /> 
   </ItemGroup>
 
 </Project>

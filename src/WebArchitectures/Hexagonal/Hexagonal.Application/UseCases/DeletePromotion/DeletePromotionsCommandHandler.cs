@@ -1,6 +1,6 @@
-﻿using MediatR;
-using Onion.Application.DTOs;
-using Onion.Domain.Services.Services.Interfaces;
+﻿using Hexagonal.Domain.Services.Services.Interfaces;
+using Hexagonal.Shared.Application.DTOs;
+using MediatR;
 
 namespace Onion.Application.UseCases.DeletePromotion;
 
@@ -17,6 +17,6 @@ public class DeletePromotionCommandHandler : IRequestHandler<DeletePromotionComm
     {
         var result = await _promoService.DeletePromotion(request.Id);
 
-        return new PromotionResultDto() { Success = result };
+        return new PromotionResultDto() {  };
     }
 }

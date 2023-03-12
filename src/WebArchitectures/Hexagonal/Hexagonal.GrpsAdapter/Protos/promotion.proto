@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+option csharp_namespace = "Hexagonal.GrpsAdapter";
+
+package promotion;
+
+service PromotionService {
+    rpc GetPromotion(GetPromotionRequest) returns (PromotionResponse) {}
+    rpc CreatePromotion(CreatePromotionRequest) returns (PromotionResponse) {}
+    rpc UpdatePromotion(UpdatePromotionRequest) returns (PromotionResponse) {}
+    rpc DeletePromotion(DeletePromotionRequest) returns (Empty) {}
+}
+
+message GetPromotionRequest {
+    string promotion_id = 1;
+}
+
+message CreatePromotionRequest {
+    string name = 1;
+    string description = 2;
+}
+
+message UpdatePromotionRequest {
+    string promotion_id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message DeletePromotionRequest {
+    string promotion_id = 1;
+}
+
+message PromotionResponse {
+    string promotion_id = 1;
+    string name = 2;
+    string description = 3;
+}
+
+message Empty {}
+
+

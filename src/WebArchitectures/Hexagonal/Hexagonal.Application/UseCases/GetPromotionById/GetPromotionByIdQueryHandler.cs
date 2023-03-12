@@ -1,7 +1,7 @@
-﻿using Onion.Application.DTOs;
+﻿using AutoMapper;
+using Hexagonal.Domain.Services.Services.Interfaces;
+using Hexagonal.Shared.Application.DTOs;
 using MediatR;
-using AutoMapper;
-using Onion.Domain.Services.Services.Interfaces;
 
 namespace Onion.Application.UseCases.GetPromotionById;
 

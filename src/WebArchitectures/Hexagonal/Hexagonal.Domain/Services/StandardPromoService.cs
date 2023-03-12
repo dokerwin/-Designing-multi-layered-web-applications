@@ -13,7 +13,7 @@ public class StandardPromoService : IPromoService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<bool> AddNewPromotion(Promotion promotion)
+    public async Task<Guid> AddNewPromotion(Promotion promotion)
     {
         try
         {
@@ -22,11 +22,11 @@ public class StandardPromoService : IPromoService
             await _unitOfWork.CompleteAsync();
             // Send domain notifications
 
-            return true;
+            return promotion.Id;
         }
         catch (Exception)
         {
-            return false;
+            return Guid.Empty;
         }
     }
 

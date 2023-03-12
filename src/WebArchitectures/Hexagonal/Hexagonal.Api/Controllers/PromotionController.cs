@@ -1,8 +1,8 @@
-﻿using MediatR;
+﻿using Hexagonal.Shared.Application.DTOs;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Onion.Application.DTOs;
 
-namespace Onion.Api.Conrollers;
+namespace Hexagonal.Api.Conrollers;
 
 
 [ApiController]
@@ -44,12 +44,10 @@ public class PromotionController : ControllerBase
         return Ok(result);
     }
 
-
     [HttpPost("CalculatePromo")]
     public async Task<ActionResult> CalculatePromo([FromBody] RawBasketDto rawBasketDto)
     {
         var result = await _mediator.Send(new CalculatePromotionForBasketCommand(rawBasketDto));
         return Ok(result);
     }
-
 }

@@ -1,6 +1,5 @@
-﻿using MediatR;
-using Onion.Application.DTOs;
-using Onion.Domain.Model.ValueObjects;
+﻿using Hexagonal.Shared.Application.DTOs;
+using MediatR;
 
-public record CalculatePromotionForBasketCommand(RawBasketDto Basket) : IRequest<CalculatedBasket>;
+public record CalculatePromotionForBasketCommand(RawBasketDto Basket) : IRequest<CalculatedBasketDto>;
 

@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using Onion.Application.DTOs;
-using Onion.Domain.Services.Persistance.Interfaces;
+using Hexagonal.Domain.Services.Persistance.Interfaces;
+using Hexagonal.Shared.Application.DTOs;
 
-namespace Onion.Aplications.Validators;
+namespace Hexagonal.Aplications.Validators;
 
 public class AddNewPromotionValidator : AbstractValidator<PromotionDto>
 {

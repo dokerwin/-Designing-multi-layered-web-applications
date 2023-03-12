@@ -7,8 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Hexagonal.Domain.Model\Hexagonal.Domain.Model.csproj" />
-    <ProjectReference Include="..\Onion.Domain.Model\Onion.Domain.Model.csproj" />
+    <PackageReference Include="FluentValidation" Version="11.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hexagonal.Domain.Model\Hexagonal.Domain.Model.csproj" /> 
   </ItemGroup>
 
 </Project>
