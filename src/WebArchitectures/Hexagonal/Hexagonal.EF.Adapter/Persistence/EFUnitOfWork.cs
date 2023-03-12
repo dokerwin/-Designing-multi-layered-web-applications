@@ -1,6 +1,6 @@
 ﻿using Hexagonal.Domain.Services.Persistance.Interfaces;
+using Hexagonal.Domain.Services.Services.Interfaces;
 using Hexagonal.Hexagonal.EF.Adapter.Persistence;
-using Microsoft.Extensions.Logging;
 
 namespace Hexagonal.PromotionService.Infrastructure.Persistence;
 
@@ -20,7 +20,7 @@ public class EFUnitOfWork : IUnitOfWork, IDisposable
 
     // Constructor that initializes the context, logger, and promotion repository
     public EFUnitOfWork(PromotionServiceContext context,
-        ILogger<EFUnitOfWork> loggerFactory,
+        ILogger<EFUnitOfWork> logger,
         IPromotionRepository promotions,
         IPromoBasketRepository promoBasketRepository)
     {
@@ -28,7 +28,7 @@ public class EFUnitOfWork : IUnitOfWork, IDisposable
         _context = context;
 
         // Store the logger instance
-        _logger = loggerFactory;
+        _logger = logger;
 
         // Store the promotion repository instance
         Promotions = promotions;
@@ -38,7 +38,19 @@ public class EFUnitOfWork : IUnitOfWork, IDisposable
     }
 
     // Method for saving changes to the database asynchronously
-    public async Task CompleteAsync() => await _context.SaveChangesAsync();
+    public async Task<bool> CompleteAsync()
+    {
+        try
+        {
+            await _context.SaveChangesAsync();
+            return true;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);
+            return false;
+        }
+    }
 
     // Method for disposing the context instance
     public void Dispose() => _context.Dispose();

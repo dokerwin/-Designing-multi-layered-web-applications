@@ -4,7 +4,7 @@ using Hexagonal.Domain.Services.Services.Interfaces;
 using Hexagonal.Shared.Application.DTOs;
 using MediatR;
 
-namespace Onion.Application.UseCases.CalculatePromotionsForBasket;
+namespace Hexagonal.Application.UseCases.Customer.CalculatePromotionsForBasket;
 
 public class CalculatePromotionForBasketCommandHandler : IRequestHandler<CalculatePromotionForBasketCommand, CalculatedBasketDto>
 {

@@ -7,10 +7,11 @@ namespace Hexagonal.Domain.Services.Services;
 public class StandardPromoService : IPromoService
 {
     private readonly IUnitOfWork _unitOfWork;
-
-    public StandardPromoService(IUnitOfWork unitOfWork)
+    private readonly ILogger<StandardPromoService>  _logger;
+    public StandardPromoService(IUnitOfWork unitOfWork, ILogger<StandardPromoService> logger)
     {
         _unitOfWork = unitOfWork;
+        _logger = logger;
     }
 
     public async Task<Guid> AddNewPromotion(Promotion promotion)
@@ -41,8 +42,9 @@ public class StandardPromoService : IPromoService
 
             return true;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
+            _logger.LogError(ex.Message);
             return false;
         }
     }
@@ -71,5 +73,23 @@ public class StandardPromoService : IPromoService
         {
             return new List<Promotion>();
         }
+    }
+
+    public async Task<bool> UpdatePromotion(Promotion promotion)
+    {
+        bool result;
+        try
+        {
+            await _unitOfWork.Promotions.Upsert(promotion);
+
+            result = await _unitOfWork.CompleteAsync();
+            // Send domain notifications
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex.Message);
+            result = false;
+        }
+        return result;
     }
 }

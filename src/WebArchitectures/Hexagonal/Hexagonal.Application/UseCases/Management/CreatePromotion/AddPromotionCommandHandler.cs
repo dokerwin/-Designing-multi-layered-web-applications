@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Hexagonal.Application.UseCases.Management;
 using Hexagonal.Domain.Model.Entities;
 using Hexagonal.Domain.Services.Services.Interfaces;
 using Hexagonal.Shared.Application.DTOs;

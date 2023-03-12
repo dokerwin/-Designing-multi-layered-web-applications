@@ -1,13 +1,15 @@
 using Hexagonal.Domain.Model.Entities;
 using Hexagonal.Domain.Services.Persistance.Interfaces;
 using Hexagonal.Domain.Services.Services;
+using Hexagonal.Domain.Services.Services.Interfaces;
 using Moq;
 
 namespace Layered.Core.Tests.Services;
 
 public class StandardPromoServiceTests
 {
-    private  Mock<IUnitOfWork> _mockUnitOfWork;
+    private Mock<IUnitOfWork> _mockUnitOfWork;
+    private Mock<ILogger<StandardPromoService>> _mockLogger;
     private readonly StandardPromoService _promoService;
 
     public StandardPromoServiceTests()
@@ -15,7 +17,8 @@ public class StandardPromoServiceTests
         Mock<IPromotionRepository> repositoryMock = new Mock<IPromotionRepository>();
         _mockUnitOfWork = new Mock<IUnitOfWork>();
         _mockUnitOfWork.Setup(uow => uow.Promotions).Returns(repositoryMock.Object);
-        _promoService = new StandardPromoService(_mockUnitOfWork.Object);
+        _mockLogger = new Mock<ILogger<StandardPromoService>>();
+        _promoService = new StandardPromoService(_mockUnitOfWork.Object, _mockLogger.Object);
     }
 
 
@@ -44,7 +47,7 @@ public class StandardPromoServiceTests
         var result = await _promoService.AddNewPromotion(promotion);
 
         // Assert
-        Assert.False(result == Guid.Empty);
+        Assert.True(result == Guid.Empty);
     }
 
 

@@ -1,5 +1,7 @@
 using AutoMapper;
 using Grpc.Core;
+using Hexagonal.Application.UseCases.Management;
+using Hexagonal.Application.UseCases.Management.UpdatePromotion;
 using MediatR;
 
 namespace Hexagonal.GrpsAdapter.Services;

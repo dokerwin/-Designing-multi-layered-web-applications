@@ -3,7 +3,7 @@ using Hexagonal.Domain.Services.Services.Interfaces;
 using Hexagonal.Shared.Application.DTOs;
 using MediatR;
 
-namespace Hexagonal.Application.UseCases.GetPromotions;
+namespace Hexagonal.Application.UseCases.Management;
 
 public class GetAllPromotionQueryHandler : IRequestHandler<GetAllPromotionsQuery, IEnumerable<PromotionDto>>
 {

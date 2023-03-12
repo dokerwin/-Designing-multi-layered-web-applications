@@ -1,4 +1,6 @@
-﻿using Hexagonal.Shared.Application.DTOs;
+﻿using Hexagonal.Application.UseCases.Customer.CalculatePromotionsForBasket;
+using Hexagonal.Application.UseCases.Management;
+using Hexagonal.Shared.Application.DTOs;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
