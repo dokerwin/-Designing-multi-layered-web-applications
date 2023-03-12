@@ -1,6 +1,6 @@
 ﻿using Layered.EntityFramework.Persistence;
 
-namespace Layered.EntityFramework.Seed;
+namespace Layered.EntityFramework.Persistence.Seed;
 public class PromotionServiceDbInitializer
 {
     public static void Initialize(PromotionServiceContext _dbContext)

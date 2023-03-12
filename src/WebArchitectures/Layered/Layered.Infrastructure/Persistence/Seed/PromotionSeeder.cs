@@ -1,6 +1,7 @@
 ﻿using Layered.Domain.Entities;
 using Layered.Domain.Enums;
-namespace Layered.EntityFramework.Seed;
+
+namespace Layered.Infrastructure.Persistence.Seed;
 
 public class PromotionSeeder
 {
@@ -17,12 +18,12 @@ public class PromotionSeeder
                     {
                         PromotionType = PromotionType.PromotionAmount,
                         Items = new List<Item>
-                        {   
-                            new Item() 
+                        {
+                            new Item()
                             {
                                 Id = Guid.Parse("36dc193f-d101-43d5-8449-28c268a115e0"),
                                 Barcode = "ABC-abc-1229"
-                            } 
+                            }
                         }
                     },
                     new PromoBasket()

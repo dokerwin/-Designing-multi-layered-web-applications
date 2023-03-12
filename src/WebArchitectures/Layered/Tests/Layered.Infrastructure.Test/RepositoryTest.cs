@@ -1,5 +1,4 @@
-﻿using Layered.Common.Interfaces.Persistance;
-using Layered.Domain.Entities;
+﻿using Layered.Domain.Entities;
 using Layered.EntityFramework.Persistence;
 using Layered.Infrastructure.Persistence.EF;
 using Microsoft.EntityFrameworkCore;

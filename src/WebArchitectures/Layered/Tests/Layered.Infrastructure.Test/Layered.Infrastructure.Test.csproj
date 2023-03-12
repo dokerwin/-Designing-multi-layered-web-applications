@@ -27,7 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Layered.Domain\Layered.Domain.csproj" />
-    <ProjectReference Include="..\..\Layered.EntityFramework\Layered.EntityFramework.csproj" />
     <ProjectReference Include="..\..\Layered.Infrastructure\Layered.Infrastructure.csproj" />
   </ItemGroup>
 

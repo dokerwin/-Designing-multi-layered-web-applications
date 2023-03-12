@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Layered.EntityFramework.Seed;
+namespace Layered.Infrastructure.Persistence.Seed;
 
 public static class DbInitializerExtension
 {
