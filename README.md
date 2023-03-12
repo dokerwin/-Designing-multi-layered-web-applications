@@ -1,3 +1,76 @@
+
+## Use case name: Apply Promotions to a Basket
+
+Primary Actor: Shopper
+
+Goal: The primary goal of this use case is to apply promotions to a basket and calculate the total price after applying the promotions.
+
+## Precondition:
+
+The Shopper has added items to their basket.
+Postcondition:
+The Shopper can see the updated total price of their basket after applying the promotions.
+
+## Basic Flow:
+
+1. The Shopper selects the items they want to purchase and adds them to their basket.
+2. The Shopper selects the "Finish and Pay" option in the user interface.
+3. The Application Service (acting as the controller) receives the request to apply promotions and sends it to the promotion service.
+4. The promotion service fetches the available promotions from the promotion repository.
+5. The promotion service applies the eligible promotions to the basket.
+6. The promotion service calculates the new total price of the basket after applying the promotions.
+7. The promotion service returns the updated basket with the applied promotions and total price to the Application Service.
+8. The Application Service sends the updated basket with the applied promotions and total price to the user interface.
+9. The Shopper sees the updated basket with the applied promotions and total price in the user interface.
+##  Alternate Flows:
+
+4a. If there are no promotions available, the promotion service skips the promotion application step and proceeds to step 6.\
+5a. If there are no eligible promotions for the items in the basket, the promotion service skips the promotion application step and proceeds to step 6.\
+6a. If the basket does not meet the minimum requirements for a promotion, the promotion service skips the promotion application step and proceeds to step 7.\
+6b. If the basket qualifies for multiple promotions, the promotion service applies all the eligible promotions and calculates the new total price.\
+7a. If an error occurs while applying the promotions, the promotion service sends an error message to the Application Service.\
+8a. If an error occurs while processing the request, the Application Service sends an error message to the user interface.
+
+##  Use case name: Manage Promotions
+
+### Primary Actor: Admin
+
+Goal: The primary goal of this use case is to manage promotions for the shop.
+
+### Precondition:
+
+The Admin is logged in to the admin panel.
+Postcondition:
+
+The Admin has added, edited or deleted a promotion.
+## Basic Flow:
+
+1. The Admin opens the "Promotions" section in the admin panel.
+2. The Admin selects the "Add Promotion" option and provides the promotion details.
+3. The Application Service (acting as the controller) receives the request to add a new promotion and sends it to the promotion service.
+4. The promotion service validates the promotion details and adds the new promotion to the promotion repository.
+5. The promotion service returns a success message to the Application Service.
+6. The Application Service sends the success message to the user interface.
+7. The Admin selects the "Edit Promotion" option and selects a promotion to edit.
+8. The Admin modifies the promotion details and saves the changes.
+9. The Application Service receives the request to update the promotion and sends it to the promotion service.
+10. The promotion service validates the updated promotion details and updates the promotion in the promotion repository.
+11. The promotion service returns a success message to the Application Service.
+12. The Application Service sends the success message to the user interface.
+13. The Admin selects the "Delete Promotion" option and selects a promotion to delete.
+14. The Application Service receives the request to delete the promotion and sends it to the promotion service.
+15. The promotion service deletes the selected promotion from the promotion repository.
+16. The promotion service returns a success message to the Application Service.
+17. The Application Service sends the success message to the user interface.
+18. The Admin sees the updated list of promotions in the admin panel.
+
+## Alternate Flows:
+
+4a. If the promotion details are invalid, the promotion service sends an error message to the Application Service.\
+9a. If the updated promotion details are invalid, the promotion service sends an error message to the Application Service.\
+15a. If the promotion is being used by existing orders or baskets, the promotion service sends an error message to the Application Service and prevents the promotion from being deleted.
+
+
 # Architecture Comparison
 Layered Architecture, Onion Architecture, and Hexagonal Architecture - is a way of organizing and structuring code in an application, but they differ from each other in some key aspects.
 
