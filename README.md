@@ -15,6 +15,44 @@ In Layered Architecture, the application layer is part of the service layer, whi
 ## Onion Architecture
 Onion Architecture is a more modern architecture that pays great attention to inversion of dependencies and the use of interfaces. In this architecture, the application is divided into smaller components called cores. Each core represents a separate module of business logic that depends only on its internal abstractions and is unaware of external abstractions. Cores can only interact with each other through interfaces, making the application more flexible and scalable.
 
+Here's an example project structure for a Onion Architecture in C#:
+
+![image](https://user-images.githubusercontent.com/70201621/225133518-ef819286-5757-4951-964c-2422bd7f8069.png)
+
+
+**Domain: Contains the core business logic.**
+Entities, ValueObjects, Enums: Domain model classes representing the main business concepts.
+Interfaces: Defines contracts for repositories and services that will be implemented in the Infrastructure layer.
+
+**Application: Holds the application's use cases and orchestrates the flow of data between the Domain and Infrastructure layers.**
+UseCases: Contains input ports, output ports, and implementations of the use cases.
+Exceptions: Custom exceptions that may occur within the Application layer.
+Mappers: Optional mapping logic to transform between domain entities and DTOs.
+
+**Infrastructure: Implements the interfaces defined in the Domain layer and handles external concerns.**
+Persistence: Contains the data access layer, including repositories, database context, and migrations.
+ExternalServices: Contains code to communicate with external systems like APIs or messaging systems.
+Logging: Contains logging-related code.
+
+**Presentation: The layer responsible for presenting the data and handling user interactions.**
+API: Contains the RESTful API controllers, middleware, and DTOs (Data Transfer Objects).
+Web: Contains the MVC-based web application views, controllers, and view models.
+tests: Contains the unit tests and integration tests for the application.
+
+## Advantages of the Onion architecture:
+- Separation of concerns: The architecture helps separate different responsibilities of the application into distinct layers, making it easier to understand and maintain the codebase.
+- Dependency inversion: The inner layers define interfaces that outer layers implement, promoting the Dependency Inversion Principle, which leads to a more flexible and maintainable system.
+- Testability: Due to the separation of concerns and dependency inversion, it becomes easier to write unit tests and integration tests, ensuring the reliability of the application.
+- Scalability: The modular nature of Onion Architecture makes it easier to scale individual components of the application as the need arises.
+- Flexibility: Changes to the infrastructure, such as switching databases or introducing new external services, can be done with minimal impact on the core business logic.
+- Technology agnostic: The architecture does not impose any specific technology or framework, allowing developers to choose the most appropriate tools for their needs.
+
+## Disadvantages of the Onion architecture:
+- Complexity: The architecture introduces additional complexity, which may be an overkill for small projects or prototypes that do not require a high degree of maintainability or flexibility.
+- Learning curve: Developers unfamiliar with Onion Architecture may require time to understand and adapt to the concepts and structure, which can slow down the initial development process.
+- More boilerplate: The architecture can lead to more boilerplate code, such as interfaces and mappings, which might be seen as additional overhead.
+- Performance overhead: The abstraction layers may introduce a small performance overhead due to the increased number of components and interfaces.
+
 ## Hexagonal Architecture
 Hexagonal Architecture is another modern architecture that also pays great attention to inversion of dependencies and the separation of business logic and infrastructure. In this architecture, business logic is at the heart of the application and surrounded by various adapter layers that provide interaction with the external world. Unlike Layered Architecture, where layers can call layers below, in Hexagonal Architecture all calls enter and exit through adapters, making the application more independent of external systems and more testable.
 
@@ -66,28 +104,6 @@ Project is well organized for better understanding and for onboarding for new jo
 Domain layer will be heavy
 
 Lots of logic will be implemented in Domain layer (sometimes called as Core layer)
-
-# Wrapping up
-Layered architecture, hexagonal architecture, and onion architecture are all design patterns that can be used in a variety of projects, depending on the specific requirements and constraints of the project at hand. Here are some examples of projects that could benefit from each architecture:
-
-### Layered Architecture:
-
-Small to medium-sized applications that have a simple architecture and do not require a lot of complexity, such as a blogging platform or a basic e-commerce website
-Applications that require a clear separation of concerns between different layers, such as a three-tier web application with a presentation layer, business logic layer, and data access layer.
-
-### Hexagonal Architecture:
-
-Large applications that require integration with external systems, such as banking or financial applications
-Complex applications that require a clear separation of concerns between different layers, such as a healthcare application that interfaces with electronic medical records and medical devices.
-
-### Onion Architecture:
-
-Highly modular and maintainable applications that require a high degree of flexibility and scalability, such as enterprise applications that handle supply chain management or customer relationship management
-Applications that require a clear separation of concerns between different layers, such as a mobile app that needs to separate the user interface from the application logic.
-It's important to note that the choice between these architectures depends on the specific needs of the project. In some cases, a combination of these architectures may be used to achieve the desired outcomes.
-
-Each of these architectures has its advantages and disadvantages, and the right choice depends on the specific requirements and features of the project.
-
 
 # Practical example 
 
@@ -167,61 +183,77 @@ The Admin has added, edited or deleted a promotion.
 15a. If the promotion is being used by existing orders or baskets, the promotion service sends an error message to the Application Service and prevents the promotion from being deleted.
 
 
-## Project structural difference
-Let's see difference in project implementation of the architecture with Domain Driven Desing pattern. The DDD was special added to the solutions to show you that all these architectures have a lot of common when the DDD is used.
+## Structural difference
+Let's see difference in project implementation of the architecture with Domain Driven Desing pattern. The DDD was specifically added to the solutions to show you that all these architectures have a lot in common when DDD is used.
 
 
 ## Layered architecture 
 
-We can see here three main layers - 
+![image](https://user-images.githubusercontent.com/70201621/225133027-109780c1-dae3-489f-ae09-57c1823ef542.png)
 
-Presentation layer:
-    Layered.Api
+### Presentation layer:
+- Layered.Api
 
-Bussiness layer:
-    Layered.Domain
-    Layered.Application
+### Bussiness layer:
+- Layered.Domain
+- Layered.Application
 
-Data access layer:
-    Layered.Infrastructure
-
+### Data access layer:
+- Layered.Infrastructure
 
 ## Onion architecture 
 
-We can see here three main layers - 
+![image](https://user-images.githubusercontent.com/70201621/225133225-4d904a18-bed9-4195-be63-3f082b0af939.png)
 
-Core(Domain) layer:
-    Onion.Domain.Model
-    Onion.Domain.Services
+### Core(Domain) layer:
+- Onion.Domain.Model
+- Onion.Domain.Services
 
-Application layer:
-    Onion.Application
+### Application layer:
+- Onion.Application
 
-Infastructure layer:
-    Onion.Infrastructure
-    Onion.EntityFramework    
-    Onion.Api 
+### Infastructure layer:
+- Onion.Infrastructure
+- Onion.EntityFramework    
+- Onion.Api 
 
 ## Hexagonal architecture (Ports and adapters)
 
-We can see here three main layers - 
+![image](https://user-images.githubusercontent.com/70201621/225132942-5a889ac3-1786-4cb7-b9b0-a4f692d67a61.png)
 
-Hexagon
-    Core(Domain) layer:
-        Hexagonal.Domain.Model
-        Hexagonal.Domain.Services
+#### Hexagon
 
-    Application layer:
-        Hexagonal.Application
+### Core(Domain) layer
+- Hexagonal.Domain.Model
+- Hexagonal.Domain.Services
+### Application layer
+- Hexagonal.Application
 
-Infastructure layer:
-    Hexagonal.Infrastructure
-        Hexagonal.EF.Adapter
-        Hexagonal.Grps.Adapter
-        Hexagonal.Rest.Adapter  
-    Hexagonal.Startup
+#### Infastructure (Adapters):
+- Hexagonal.Infrastructure 
+- Hexagonal.EF.Adapter - Driven
+- Hexagonal.Grps.Adapter - Driver
+- Hexagonal.Rest.Adapter  - Driver
+- **Hexagonal.Startup**
 
+# Wrapping up
+Layered architecture, hexagonal architecture, and onion architecture are all design patterns that can be used in a variety of projects, depending on the specific requirements and constraints of the project at hand. Here are some examples of projects that could benefit from each architecture:
 
+### Layered Architecture:
 
+Small to medium-sized applications that have a simple architecture and do not require a lot of complexity, such as a blogging platform or a basic e-commerce website
+Applications that require a clear separation of concerns between different layers, such as a three-tier web application with a presentation layer, business logic layer, and data access layer.
 
+### Hexagonal Architecture:
+
+Large applications that require integration with external systems, such as banking or financial applications
+Complex applications that require a clear separation of concerns between different layers, such as a healthcare application that interfaces with electronic medical records and medical devices.
+
+### Onion Architecture:
+
+Highly modular and maintainable applications that require a high degree of flexibility and scalability, such as enterprise applications that handle supply chain management or customer relationship management
+Applications that require a clear separation of concerns between different layers, such as a mobile app that needs to separate the user interface from the application logic.
+It's important to note that the choice between these architectures depends on the specific needs of the project. In some cases, a combination of these architectures may be used to achieve the desired outcomes.
+
+Each of these architectures has its advantages and disadvantages, and the right choice depends on the specific requirements and features of the project.
 
