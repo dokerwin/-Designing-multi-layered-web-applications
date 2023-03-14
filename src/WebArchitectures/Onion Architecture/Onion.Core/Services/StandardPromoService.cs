@@ -30,7 +30,6 @@ public class StandardPromoService : IPromoService
         }
     }
 
-
     public async Task<bool> DeletePromotion(Guid promotionID)
     {
         try
