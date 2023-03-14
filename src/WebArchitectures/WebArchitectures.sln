@@ -13,11 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Layered.Application", "Laye
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Layered.Infrastructure.Test", "Layered\Tests\Layered.Infrastructure.Test\Layered.Infrastructure.Test.csproj", "{BD0F497C-1797-4610-B07E-5E6119E0BE73}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexagonal.Domain.Tests", "Layered\Tests\Layerd.Domain.Tests\Hexagonal.Domain.Tests.csproj", "{2BE5E105-BC8B-4085-B919-36678B2472A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Layered.Domain.Tests", "Layered\Tests\Layerd.Domain.Tests\Layered.Domain.Tests.csproj", "{2BE5E105-BC8B-4085-B919-36678B2472A2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Layered.Application.UnitTest", "Layered\Tests\Layered.Application.Test\Layered.Application.UnitTest.csproj", "{6EBD2E0B-810C-4871-9739-C0A536CDAA4C}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Layered.Rest.Adapter.Test", "Layered\Tests\Layered.Api.Test\Layered.Rest.Adapter.Test.csproj", "{4A862ABB-F9F8-4B5A-A51E-FD585BEE0867}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Layered architecture", "Layered architecture", "{90044CF9-C75D-4E9E-B785-F791F534B51D}"
 EndProject
@@ -97,13 +95,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexagonal.EF.Adapter", "Hex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexagonal.Startup", "Hexagonal\Hexagonal.Startup\Hexagonal.Startup.csproj", "{5E84C212-36B1-4418-9F79-00951F6F5F64}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hexagon", "Hexagon", "{64DFBB7D-9B36-4094-9A27-C5A5A5382D10}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{64DFBB7D-9B36-4094-9A27-C5A5A5382D10}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{DC085CCF-7CDD-4611-91D0-C3504C4C291C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hexagon", "Hexagon", "{FABCD9F9-F6DA-4A5C-AC93-ACA02C10A1F4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hexagonal.Application.Test", "Hexagonal\Tests\Hexagonal.Application.Test\Hexagonal.Application.Test.csproj", "{222F5BDF-E82F-4169-B9C0-5408E21471CC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hexagonal.Application.Test", "Hexagonal\Tests\Hexagonal.Application.Test\Hexagonal.Application.Test.csproj", "{222F5BDF-E82F-4169-B9C0-5408E21471CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -139,10 +137,6 @@ Global
 		{6EBD2E0B-810C-4871-9739-C0A536CDAA4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6EBD2E0B-810C-4871-9739-C0A536CDAA4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6EBD2E0B-810C-4871-9739-C0A536CDAA4C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4A862ABB-F9F8-4B5A-A51E-FD585BEE0867}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4A862ABB-F9F8-4B5A-A51E-FD585BEE0867}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4A862ABB-F9F8-4B5A-A51E-FD585BEE0867}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4A862ABB-F9F8-4B5A-A51E-FD585BEE0867}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D5021800-AEC3-49C9-B0D3-1A3D365FF477}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5021800-AEC3-49C9-B0D3-1A3D365FF477}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5021800-AEC3-49C9-B0D3-1A3D365FF477}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -247,7 +241,6 @@ Global
 		{BD0F497C-1797-4610-B07E-5E6119E0BE73} = {DC085CCF-7CDD-4611-91D0-C3504C4C291C}
 		{2BE5E105-BC8B-4085-B919-36678B2472A2} = {64DFBB7D-9B36-4094-9A27-C5A5A5382D10}
 		{6EBD2E0B-810C-4871-9739-C0A536CDAA4C} = {64DFBB7D-9B36-4094-9A27-C5A5A5382D10}
-		{4A862ABB-F9F8-4B5A-A51E-FD585BEE0867} = {DC085CCF-7CDD-4611-91D0-C3504C4C291C}
 		{D0C9E9FC-D6ED-4645-8198-57ECA12C1A55} = {90044CF9-C75D-4E9E-B785-F791F534B51D}
 		{D5021800-AEC3-49C9-B0D3-1A3D365FF477} = {6CC22949-5DD2-47E5-827D-E04DB2BF8F93}
 		{1C6A6B3B-0D42-4B26-AFFF-67E1E03CAF33} = {D3925D30-C8FF-418C-A1B5-AC0D7EB9F182}

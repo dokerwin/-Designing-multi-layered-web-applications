@@ -72,4 +72,22 @@ public class StandardPromoService : IPromoService
             return new List<Promotion>();
         }
     }
+
+    public async Task<bool> UpdatePromotion(Promotion promotion)
+    {
+        bool result;
+        try
+        {
+            await _unitOfWork.Promotions.Upsert(promotion);
+            await _unitOfWork.CompleteAsync();
+            result = true;
+            // Send domain notifications
+        }
+        catch (Exception)
+        {
+            result = false;
+        }
+        return result;
+    }
 }
+

@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Persistence\**" />
+    <EmbeddedResource Remove="Persistence\**" />
+    <None Remove="Persistence\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.3" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
   </ItemGroup>
@@ -15,10 +21,6 @@
     <ProjectReference Include="..\Hexagonal.Domain\Hexagonal.Domain.Services.csproj" />
     <ProjectReference Include="..\Hexagonal.EF.Adapter\Hexagonal.EF.Adapter.csproj" />
     <ProjectReference Include="..\Hexagonal.EntityFramework\Hexagonal.EntityFramework.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Persistence\" />
   </ItemGroup>
 
 </Project>
