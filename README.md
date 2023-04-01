@@ -12,6 +12,21 @@ Each layer is represented as a folder within the solution. The subfolders within
 
 In Layered Architecture, the application layer is part of the service layer, which is responsible for implementing the business logic of the system. The service layer contains the application logic, data access logic, and any other technical concerns. The service layer is often divided into multiple sub-layers such as application, domain, and infrastructure.
 
+### Advantages:
+
+- Separation of concerns: Each layer has a specific responsibility, which makes it easier to understand and maintain the system.
+- Modularity: The modular structure of the system makes it easier to add or remove functionality without affecting other parts of the system.
+- Reusability: The layers can be reused in other systems, which can save time and effort.
+- Scalability: The layered architecture can be easily scaled up or down to handle changing requirements.
+- Testing: The layered architecture makes it easier to test each layer in isolation, which can reduce the overall testing effort.
+
+### Disadvantages:
+
+- Performance: The use of multiple layers can add overhead, which can affect the performance of the system.
+- Complexity: The layered architecture can add complexity to the system, which can make it harder to understand and maintain.
+- Tight coupling: The layers can be tightly coupled, which can make it harder to change one layer without affecting other layers.
+- Duplication of code: The layers can result in duplication of code, which can make the system harder to maintain.
+
 ## Onion Architecture
 Onion Architecture is a more modern architecture that pays great attention to inversion of dependencies and the use of interfaces. In this architecture, the application is divided into smaller components called cores. Each core represents a separate module of business logic that depends only on its internal abstractions and is unaware of external abstractions. Cores can only interact with each other through interfaces, making the application more flexible and scalable.
 
@@ -147,14 +162,6 @@ The Shopper can see the updated total price of their basket after applying the p
 
 ### Primary Actor: Admin
 
-Goal: The primary goal of this use case is to manage promotions for the shop.
-
-### Precondition:
-
-The Admin is logged in to the admin panel.
-Postcondition:
-
-The Admin has added, edited or deleted a promotion.
 ## Basic Flow:
 
 1. The Admin opens the "Promotions" section in the admin panel.
@@ -176,16 +183,8 @@ The Admin has added, edited or deleted a promotion.
 17. The Application Service sends the success message to the user interface.
 18. The Admin sees the updated list of promotions in the admin panel.
 
-## Alternate Flows:
-
-4a. If the promotion details are invalid, the promotion service sends an error message to the Application Service.\
-9a. If the updated promotion details are invalid, the promotion service sends an error message to the Application Service.\
-15a. If the promotion is being used by existing orders or baskets, the promotion service sends an error message to the Application Service and prevents the promotion from being deleted.
-
-
 ## Structural difference
 Let's see difference in project implementation of the architecture with Domain Driven Desing pattern. The DDD was specifically added to the solutions to show you that all these architectures have a lot in common when DDD is used.
-
 
 ## Layered architecture 
 
@@ -243,17 +242,21 @@ Layered architecture, hexagonal architecture, and onion architecture are all des
 
 Small to medium-sized applications that have a simple architecture and do not require a lot of complexity, such as a blogging platform or a basic e-commerce website
 Applications that require a clear separation of concerns between different layers, such as a three-tier web application with a presentation layer, business logic layer, and data access layer.
+Testing in a layered architecture typically involves testing each layer in isolation to ensure that it is functioning correctly and also testing the interactions between layers to ensure that the data is flowing correctly. This approach allows for a clear separation of concerns and makes it easier to isolate and fix bugs.
 
 ### Hexagonal Architecture:
 
 Large applications that require integration with external systems, such as banking or financial applications
 Complex applications that require a clear separation of concerns between different layers, such as a healthcare application that interfaces with electronic medical records and medical devices.
+Testing in a hexagonal architecture requires testing the core domain and its interactions with the adapters and ports. This approach allows for more flexibility in terms of how the system communicates with external systems, but can also make testing more complex.
 
 ### Onion Architecture:
 
 Highly modular and maintainable applications that require a high degree of flexibility and scalability, such as enterprise applications that handle supply chain management or customer relationship management
 Applications that require a clear separation of concerns between different layers, such as a mobile app that needs to separate the user interface from the application logic.
 It's important to note that the choice between these architectures depends on the specific needs of the project. In some cases, a combination of these architectures may be used to achieve the desired outcomes.
+Testing in an onion architecture is similar to testing in a layered architecture, but with an added emphasis on testing the core layer. This layer is critical to the functioning of the system, and so it is important to ensure that it is well-tested and functioning correctly.
+
 
 Each of these architectures has its advantages and disadvantages, and the right choice depends on the specific requirements and features of the project.
 
