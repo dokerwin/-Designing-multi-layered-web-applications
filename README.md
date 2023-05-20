@@ -171,6 +171,8 @@ Domain layer will be heavy
 
 Lots of logic will be implemented in Domain layer (sometimes called as Core layer)
 
+### Opinion
+
 In my opinion, Hexagonal Architecture is a great choice for complex applications with evolving requirements. It allows for modular and flexible development, making it easier to understand and maintain the codebase. With clear separation of concerns and easy integration with external systems, Hexagonal Architecture promotes testability and technology independence. While it may introduce some complexity, the benefits of scalability, adaptability, and testability make it worth considering for projects that require these qualities.
 
 # Practical example 
