@@ -4,9 +4,9 @@ Layered Architecture, Onion Architecture, and Hexagonal Architecture - is a way 
 ## Layered Architecture
 Layered Architecture is an architecture that separates the application into layers, where each layer performs specific tasks. The business logic is in the upper layers, and the infrastructure layers (such as databases, web servers, etc.) are in the lower layers. Layers can only interact with layers below, which makes the application more modular and easily testable.
 
-Here's an example of what this project structure might look like in a C# solution:
+Here's an example of structure.
 
-![image](https://user-images.githubusercontent.com/70201621/222955455-059cfb50-de8e-49da-99b0-39abe4067d7b.png)
+![image](https://github.com/dokerwin/-Designing-multi-layered-web-applications/assets/70201621/a3511494-726a-4b5e-a8e2-abd7af147f48)
 
 Each layer is represented as a folder within the solution. The subfolders within each layer represent the various components and classes that make up that layer. The Tests folder contains separate test projects for each layer, with each project containing unit tests for that layer.
 
@@ -27,17 +27,19 @@ In Layered Architecture, the application layer is part of the service layer, whi
 - Tight coupling: The layers can be tightly coupled, which can make it harder to change one layer without affecting other layers.
 - Duplication of code: The layers can result in duplication of code, which can make the system harder to maintain.
 
-## Onion Architecture
+## Onion/Clean Architecture
 Onion Architecture is a more modern architecture that pays great attention to inversion of dependencies and the use of interfaces. In this architecture, the application is divided into smaller components called cores. Each core represents a separate module of business logic that depends only on its internal abstractions and is unaware of external abstractions. Cores can only interact with each other through interfaces, making the application more flexible and scalable.
+
+![image](https://github.com/dokerwin/-Designing-multi-layered-web-applications/assets/70201621/27bb587f-0e01-4142-a859-f6ce343d4b5e)
 
 Here's an example project structure for a Onion Architecture in C#:
 
 ![image](https://user-images.githubusercontent.com/70201621/225133518-ef819286-5757-4951-964c-2422bd7f8069.png)
 
-
 **Domain: Contains the core business logic.**
 Entities, ValueObjects, Enums: Domain model classes representing the main business concepts.
 Interfaces: Defines contracts for repositories and services that will be implemented in the Infrastructure layer.
+Domain layerd should not know about the world outside. The best solution do not have references to anothers projects or dependencies to some framework. 
 
 **Application: Holds the application's use cases and orchestrates the flow of data between the Domain and Infrastructure layers.**
 UseCases: Contains input ports, output ports, and implementations of the use cases.
@@ -184,7 +186,7 @@ The Shopper can see the updated total price of their basket after applying the p
 18. The Admin sees the updated list of promotions in the admin panel.
 
 ## Structural difference
-Let's see difference in project implementation of the architecture with Domain Driven Desing pattern. The DDD was specifically added to the solutions to show you that all these architectures have a lot in common when DDD is used.
+Let's see difference in project implementation of the architecture with Domain Driven Desing pattern. The DDD was specifically added to the solutions to show you that all these architectures have a lot in common when DDD is used. 
 
 ## Layered architecture 
 
