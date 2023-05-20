@@ -23,7 +23,7 @@ Contains controllers, views, view models, and client-side scripts.
 Communicates with the Business Logic Layer.
 Business Logic Layer:
 
-Business Logic Layer: 
+Business Logic/Application Layer: 
 Implements the business rules and logic of the application.
 Contains services, business entities, and business-specific validation.
 Acts as an intermediary between the Presentation Layer and the Data Access Layer.
