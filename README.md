@@ -17,8 +17,6 @@ Here's an example of structure.
 
 Each layer is represented as a folder within the solution. The subfolders within each layer represent the various components and classes that make up that layer. The Tests folder contains separate test projects for each layer, with each project containing unit tests for that layer.
 
-In Layered Architecture, the application layer is part of the service layer, which is responsible for implementing the business logic of the system. The service layer contains the application logic, data access logic, and any other technical concerns. The service layer is often divided into multiple sub-layers such as application, domain, and infrastructure.
-
 Presentation Layer:
 Responsible for handling user interactions, displaying the user interface, and capturing user input.
 Contains controllers, views, view models, and client-side scripts.
