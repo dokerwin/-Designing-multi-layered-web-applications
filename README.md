@@ -19,6 +19,32 @@ Each layer is represented as a folder within the solution. The subfolders within
 
 In Layered Architecture, the application layer is part of the service layer, which is responsible for implementing the business logic of the system. The service layer contains the application logic, data access logic, and any other technical concerns. The service layer is often divided into multiple sub-layers such as application, domain, and infrastructure.
 
+Presentation Layer:
+Responsible for handling user interactions, displaying the user interface, and capturing user input.
+Contains controllers, views, view models, and client-side scripts.
+Communicates with the Business Logic Layer.
+Business Logic Layer:
+
+Business Logic Layer: 
+Implements the business rules and logic of the application.
+Contains services, business entities, and business-specific validation.
+Acts as an intermediary between the Presentation Layer and the Data Access Layer.
+References the Data Access Layer.
+Data Access Layer:
+
+Data Access Layer:
+Provides data access and persistence functionality.
+Contains repositories, data models, and database access code (e.g., using Entity Framework, ADO.NET, etc.).
+Handles interactions with the underlying data storage (database, external APIs, etc.).
+Does not have dependencies on other layers.
+Cross-cutting Concerns:
+
+Shared (optional)
+Contains shared code, utilities, and cross-cutting concerns used across multiple layers.
+May include logging, exception handling, validation, serialization, and other common functionalities.
+Referenced by other layers as needed.
+
+
 ### Advantages:
 
 - Separation of concerns: Each layer has a specific responsibility, which makes it easier to understand and maintain the system.
