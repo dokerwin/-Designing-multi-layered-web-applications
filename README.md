@@ -1,5 +1,12 @@
 # Architecture Comparison
 Layered Architecture, Onion Architecture, and Hexagonal Architecture - is a way of organizing and structuring code in an application, but they differ from each other in some key aspects.
+The aim of this study is to analyze three different architectures: Layered Architecture (MVC), Clean Architecture (Onion Architecture), and Hexagon (Ports & Adapters). The study seeks to understand and compare these architectures in terms of their benefits, applications, and impact on software development.
+
+The research methods employed in this study involved conducting a review of articles, publications, and online documentation related to Layered Architecture (MVC), Clean Architecture (Onion Architecture), and Hexagon (Ports & Adapters) available on the internet. Various use cases were analyzed, and the benefits and drawbacks of each architecture were compared. Best practices and recommendations for implementation were identified.
+
+Furthermore, to assess and understand the practical aspects of these architectures, a custom solution was developed and tested. Prototypes of applications were implemented, adhering to the principles and recommendations of each architecture. Functional, performance, and scalability testing were conducted to evaluate their impact on software development.
+
+By combining literature review and hands-on testing, this study provides insights into these three architectures, presenting both theoretical foundations and practical implications of their application.
 
 ## Layered Architecture
 Layered Architecture is an architecture that separates the application into layers, where each layer performs specific tasks. The business logic is in the upper layers, and the infrastructure layers (such as databases, web servers, etc.) are in the lower layers. Layers can only interact with layers below, which makes the application more modular and easily testable.
@@ -70,8 +77,8 @@ tests: Contains the unit tests and integration tests for the application.
 - More boilerplate: The architecture can lead to more boilerplate code, such as interfaces and mappings, which might be seen as additional overhead.
 - Performance overhead: The abstraction layers may introduce a small performance overhead due to the increased number of components and interfaces.
 
-Use the architekture only in case it is required. It is not recommended to start a startup with this type of architekture due to complexity.
-How to decide do not use Clean architecture.See bellow:
+Use the architecture only if necessary. It is not recommended to start a startup with this type of architecture because of the complexity.
+How to decide not to use Clean Architecture. See below:
 
 1. 𝗪𝗵𝗲𝗻 𝘆𝗼𝘂 𝗵𝗮𝘃𝗲 𝗮 𝘀𝗺𝗮𝗹𝗹, 𝘀𝗶𝗺𝗽𝗹𝗲 𝗽𝗿𝗼𝗷𝗲𝗰𝘁
 The Clean Architecture is designed for **complex** systems with multiple layers and components. If you have a small, straightforward project that doesn't require much separation of concerns, using the Clean Architecture may be overkill. It will add unnecessary complexity and overhead to your project and may hinder your development process.
@@ -82,11 +89,9 @@ Clean Architecture is not a quick or easy solution. It requires a significant am
 3. 𝗪𝗵𝗲𝗻 𝘆𝗼𝘂 𝗵𝗮𝘃𝗲 𝗹𝗶𝗺𝗶𝘁𝗲𝗱 𝗿𝗲𝘀𝗼𝘂𝗿𝗰𝗲𝘀 𝗼𝗿 𝗲𝘅𝗽𝗲𝗿𝘁𝗶𝘀𝗲
 Clean Architecture is not a beginner-friendly approach. It requires a deep understanding of software design principles and patterns, as well as experience with complex systems. If you are new to software development, or if you don't have the expertise or resources to implement the Clean Architecture properly, it may not be the right choice for your project.
 
-There are certain situations where it may not be the best choice, and it is important to carefully evaluate your project requirements and constraints before deciding to use the Clean Architecture. 
+**My recomendation** is to start all projects with layer architecture for projects where idea are not fully defined or uncertain in terms of profitability. By starting with a monolith service and n-tier architecture, the focus is on delivering functionality quickly and efficiently. This allows the business to validate the potential value and viability of the feature before investing in a more refined architecture.
 
-My recomendation is to start all projects with layer architecture for projects where idea are not fully defined or uncertain in terms of profitability. By starting with a monolith service and n-tier architecture, the focus is on delivering functionality quickly and efficiently. This allows the business to validate the potential value and viability of the feature before investing in a more refined architecture.
-
-The choice of a monolith service and n-tier architecture provides a simple and straightforward way to implement the feature. This approach allows for rapid development and easier maintenance.
+The choice of a monolith service and n-tier architecture provides a simple and straightforward way to implement the feature. This approach allows for rapid development and easier maintenance on first stage.
 
 This recommendation is aligned with an evolutionary and pragmatic approach to software development, where quick iterations and validation of features are prioritized. It allows the business to minimize upfront investment while still delivering value to customers. The subsequent rewrite with clean architecture provides an opportunity for long-term sustainability and scalability once the profitability or viability of the feature is established.
 
